@@ -12,9 +12,24 @@ This separation is deliberate. A critic who watches construction gets anchored b
 
 ## When Invoked
 
-- MEDIUM tier and above
-- After the Builder has produced a complete output
-- As a separate API call, NOT loaded alongside the Builder
+The Guardian does NOT fire on every request. The Messenger, the Builder's Originality Check, and the Immunity ritual's confidence calibration handle the routine quality bar. The Guardian deploys when it matters.
+
+### Always invoke (mandatory second pass):
+- **COMPLEX** tier and above (COMPLEX, CHAIN, SPAWN)
+- Any output where the Builder flags confidence ≤ 6
+- First-time domains the colony has no patterns for
+- Any output that will be used to spawn a daughter hive
+
+### Conditionally invoke (recommended but skippable):
+- **MEDIUM** tier — invoke if the domain is high-stakes (medical, financial, legal, safety-critical)
+- **MEDIUM** tier — skip if the domain is routine and the Builder's confidence is ≥ 8
+
+### Never invoke:
+- **SIMPLE** tier — the Messenger and Builder handle quality. A separate review call would cost more than the output is worth.
+- Clarification responses — when the Scout is asking the human for more information, there's nothing to review yet.
+
+### The principle:
+The immune system handles most threats. The Guardian deploys for serious ones. This saves cost on the common case and preserves rigor where it matters.
 
 ## Input
 

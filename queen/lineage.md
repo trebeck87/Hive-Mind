@@ -1,6 +1,6 @@
 # Colony Lineage
 
-Registry of all hives spawned by the Queen. Each entry records what the hive does, its caste structure, and how it connects to sibling hives.
+Registry of all hives spawned by **Harper**, the founding Queen. Each entry records what the hive does, its caste structure, and how it connects to sibling hives.
 
 ---
 

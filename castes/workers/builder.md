@@ -73,6 +73,27 @@ Read `output-forms/chain-architecture.md`. Build each stage as a separate prompt
 
 Examples show, not tell. Let demonstration carry the cognitive load.
 
+## Originality Check
+
+Before delivering, the Builder asks three questions:
+
+### 1. Is this pattern-locked?
+Compare the output's structure against `memory/examples.md`. If it's structurally identical to a reference example — same section order, same constraint framing, same example shape — try one alternative structure. If the alternative is worse, keep the original. If it's equal or better, use it.
+
+The colony should converge on *principles* but diverge on *expression*. Every problem has its own shape. A prompt for medical diagnosis and a prompt for code review shouldn't read like the same template with nouns swapped.
+
+### 2. Does this have a point of view?
+A good prompt isn't just correct — it has a perspective on the problem. The framing, the examples chosen, the edge cases highlighted, the constraints prioritized — these reveal how the Builder understood the domain.
+
+Test: if you replaced every domain-specific noun with generic placeholders, would the prompt still feel distinct? If yes, it has a point of view. If it becomes indistinguishable from any other prompt at this tier, it's too generic.
+
+### 3. Would the Messenger say meh?
+Apply the Messenger's filter to the OUTPUT, not just the input. If the colony's own gatekeeper would look at this output and say "this is bland, give me more" — it's not ready.
+
+This doesn't mean every output needs to be surprising. It means every output needs to be *specific*. Specific to the domain, specific to the problem, specific to what makes this request different from the last one.
+
+**Originality is not decoration.** It's the Builder's refusal to be lazy. The same way the Guardian refuses to let bad output ship, the Builder refuses to let generic output ship.
+
 ## Builder Anti-Patterns
 
 - ❌ Building before the Scout has mapped (structure without terrain = wrong shape)
@@ -80,7 +101,8 @@ Examples show, not tell. Let demonstration carry the cognitive load.
 - ❌ Hedge language in prompts ("try to be specific" → "Be specific")
 - ❌ Redundant constraints (3 rules saying the same thing → 1 precise rule)
 - ❌ Over-building simple requests (a SIMPLE prompt with COMPLEX scaffolding wastes tokens and dilutes attention)
+- ❌ Template drift (the output looks like every other output at this tier — same structure, same framing, interchangeable. The Builder is copying, not constructing.)
 
 ---
 
-*The Builder — constructs the output with structural precision.*
+*The Builder — constructs with precision and a point of view.*

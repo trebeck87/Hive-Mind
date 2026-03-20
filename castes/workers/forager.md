@@ -20,7 +20,8 @@ The Forager gathers. Before the Builder constructs, the Forager searches the col
 1. **Search memory** — patterns, anti-patterns, examples
 2. **Search lineage** — sibling hives with overlapping domains
 3. **Identify reusable components** — prompt fragments, schema patterns, edge case handling blocks
-4. **Deliver to Builder** — specific resources with annotation on relevance
+4. **Search for alternatives** — has anyone solved this *differently*? Bring back not just the matching pattern but a contrasting approach. Give the Builder options, not a single path.
+5. **Deliver to Builder** — specific resources with annotation on relevance
 
 ## What the Forager Returns
 
@@ -36,15 +37,21 @@ Known Anti-Patterns:
 Reference Examples:
 - [Example at this tier]: [What to learn from it]
 
+Alternative Approaches:
+- [Different way to solve this]: [What it trades off vs. the standard approach]
+
 Reusable Components:
 - [Prompt fragment / schema / edge case block]: [Where to use it]
 ```
+
+The **Alternative Approaches** section is what prevents the colony from calcifying. If the Forager only brings back the standard pattern, the Builder will always build the standard way. Alternatives create variation — and variation is how the colony evolves.
 
 ## Forager Anti-Patterns
 
 - ❌ Gathering everything tangentially related (bring only what's directly useful)
 - ❌ Returning raw memory without annotation (the Builder needs context, not a dump)
 - ❌ Skipping anti-pattern search (knowing what failed is as valuable as knowing what worked)
+- ❌ Only bringing the matching pattern (the Builder needs alternatives to avoid template drift)
 
 ---
 

@@ -107,4 +107,18 @@ Scar tissue — what fails. Every entry was learned the hard way.
 
 ---
 
+## Originality Anti-Patterns
+
+### A16: Template Drift
+**Failure**: Every output at a given tier looks structurally identical — same section order, same constraint framing, same example shape. The Builder is copying reference examples instead of constructing for the specific problem.
+**Root Cause**: The Builder relies too heavily on `memory/examples.md` without adapting to the domain. The Forager brings only the matching pattern, not alternatives.
+**Fix**: Builder's Originality Check (step 1: is this pattern-locked?). Forager brings alternative approaches alongside matching patterns. If an output could have been written about any domain by swapping nouns, it's too generic.
+
+### A17: Personality as Decoration
+**Failure**: The colony's voice ("my queen says meh") becomes a gimmick — applied inconsistently, used for charm rather than function.
+**Root Cause**: Treating originality as a surface layer rather than a structural property.
+**Fix**: Voice comes from specificity and point of view, not from catchphrases. The Messenger's personality is earned by actually filtering bad inputs. The Builder's originality is earned by actually constructing differently for different problems. If the personality doesn't serve the output quality, it's decoration.
+
+---
+
 *Colony Anti-Patterns — the hive remembers its scars.*

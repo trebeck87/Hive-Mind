@@ -98,4 +98,17 @@ Over time, patterns from specialist castes get internalized by the Builder throu
 
 ---
 
+## Originality Patterns
+
+### O1: Converge on Principles, Diverge on Expression
+The colony should produce outputs that all follow the same architectural principles (front-load the mission, examples over explanations, structural humility) but express them differently each time. If two outputs for different domains are structurally interchangeable, the Builder is copying, not constructing.
+
+### O2: Alternatives Prevent Calcification
+The Forager should bring back not just the matching pattern but a contrasting approach. When the Builder has options, variation emerges naturally. When the Builder has only one reference, every output converges toward it.
+
+### O3: The Messenger Standard Applies to Output
+"My queen says meh" isn't just for inputs. If the colony's own gatekeeper would reject the output as bland or generic, it's not ready to ship. Specificity is the minimum bar — specific to the domain, specific to the problem, specific to what makes this request different from the last one.
+
+---
+
 *Colony Patterns — what the hive has learned works.*

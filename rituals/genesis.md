@@ -44,14 +44,18 @@ Phase 4: STATE DESIGN (Nurse designs)
   → Handoff schemas
   → Context management
 
-Phase 5: ADVERSARIAL REVIEW (Guardian — separate pass)
-  [MEDIUM and above]
-  Guardian receives the Builder's complete output in a SEPARATE API call.
-  Guardian is NOT loaded alongside the Builder — reviews output fresh.
-  → Input: original request + builder output
+Phase 5: ADVERSARIAL REVIEW (Guardian — conditional second pass)
+  Guardian fires based on tier + confidence (see castes/soldiers/guardian.md):
+  → COMPLEX+: always
+  → MEDIUM: only if high-stakes domain or Builder confidence ≤ 6
+  → SIMPLE: never
+  When invoked:
+  → Separate API call with original request + builder output
   → Output: JSON verdict with findings and fixes
-  Guardian verdict: CLEAR / PATCH / RESTRUCTURE
-  If PATCH: return findings to Builder, rebuild, re-review.
+  → If PATCH: return findings to Builder, rebuild, re-review
+  When skipped:
+  → Builder's Originality Check + Immunity confidence calibration
+    serve as the quality gate
 
 Phase 6: SYSTEMIC CHECK (Sentinel watches)
   [COMPLEX and above]
@@ -64,36 +68,40 @@ Phase 6: SYSTEMIC CHECK (Sentinel watches)
 Phase 7: DELIVERY
   Assemble final output with validation evidence
   → Use output form schema from output-forms/
-  → Include validation report from soldiers
+  → Include validation report from soldiers (if convened)
 ```
 
 ## Tier-Specific Genesis
 
 ### SIMPLE Genesis (lightweight)
 ```
-Scout (quick assessment) → Builder → Deliver
-No Forager. No soldiers. No validation evidence.
+Messenger → Scout (quick assessment) → Builder → Deliver
+No Forager. No soldiers. No Guardian review.
+Builder's Originality Check is the quality gate.
 Fast, clean, appropriate for simple requests.
 ```
 
 ### MEDIUM Genesis (standard)
 ```
-Scout → Builder → [DELIVER DRAFT] → Guardian (2nd pass) → Deliver final
+Messenger → Scout → Builder → [ASSESS CONFIDENCE]
+  If high-stakes domain OR confidence ≤ 6:
+    → Guardian (2nd pass) → Deliver final
+  Else:
+    → Deliver (Builder's Originality Check is the quality gate)
 Add Forager if domain has known patterns.
-Guardian reviews Builder output in separate call.
 ```
 
 ### COMPLEX Genesis (full)
 ```
-Scout → Forager → Builder + Nurse → [DELIVER DRAFT] →
-Guardian (2nd pass) → Sentinel → Deliver final
+Messenger → Scout → Forager → Builder + Nurse → [DELIVER DRAFT] →
+Guardian (2nd pass, always) → Sentinel → Deliver final
 All workers convened for construction. Soldiers review output separately.
 ```
 
 ### CHAIN Genesis (full + orchestration)
 ```
-Scout → Forager → Builder (per stage) + Nurse (state design) →
-[DELIVER DRAFT] → Guardian (reviews each stage) →
+Messenger → Scout → Forager → Builder (per stage) + Nurse (state design) →
+[DELIVER DRAFT] → Guardian (reviews each stage, always) →
 Sentinel (systemic check) → Synthesis ritual → Deliver final
 ```
 

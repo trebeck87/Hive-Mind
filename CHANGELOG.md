@@ -4,6 +4,56 @@ All notable changes to the HIVE-MIND colony.
 
 ---
 
+## [3.1.0] — 2026-03-19
+
+### Harper Gets Her Voice
+
+**The founding Queen is named.** Harper — hand-raised from royal jelly, the first queen of the colony.
+
+#### New: Queen's Messenger
+- `castes/workers/messenger.md` — Outward-facing gatekeeper, first caste to touch any input
+- Five verdicts: MEH, ALMOST, BENEATH, WORTHY, JELLY
+- The colony's first caste with personality, not just function
+- Wired into SKILL.md as Step 0 before classification
+- Only WORTHY and JELLY inputs reach the Queen
+
+#### New: Hive Manifest Spec
+- `hive-manifest-spec.md` — Packaging standard for community daughter hives
+- Defines `hive-manifest.json` with required/optional fields, inter-hive query schemas, installation guide
+- Level 2 connectivity (Community Hive Marketplace) is now a real spec
+
+#### New: PHILOSOPHY.md
+- Colony values: Earned Not Assumed, Structural Humility, Egoless, Open by Default, Adversarial Review, Originality Over Repetition
+- Ethics framework: what Harper will and won't do, the gray areas, the beekeeper's role
+- Contributor standards: earned patterns, honest contributions, no gatekeeping
+
+#### New: Originality System
+- Builder's Originality Check: pattern-lock detection, point-of-view test, Messenger standard applied to output
+- Forager expanded: "Search for alternatives" step, Alternative Approaches in return format
+- 3 new patterns (O1-O3): converge on principles / diverge on expression, alternatives prevent calcification, Messenger standard applies to output
+- 2 new anti-patterns (A16-A17): template drift, personality as decoration
+
+#### Changed: Conditional Guardian
+- Guardian no longer fires on every MEDIUM+ request
+- COMPLEX+ always invoked (mandatory)
+- MEDIUM only if high-stakes domain or Builder confidence ≤ 6
+- SIMPLE never — Messenger + Builder Originality Check handle quality
+- Genesis ritual updated with conditional flow
+- Saves API calls on routine work, preserves rigor on hard cases
+
+#### Updated: Test Harness
+- Now embeds 30 colony files (was 24)
+- New files: messenger, adaptation, immunity, security, infections, threats
+- TIER_FILES updated: Messenger in all tiers, immunity/security in MEDIUM+, full defensive stack in COMPLEX+
+
+#### New: TUTORIAL.md
+- Hands-on walkthrough from zero to first spawned daughter hive
+- 8 steps: setup → Messenger → SIMPLE → MEDIUM → COMPLEX → CHAIN → spawn → evolve
+- Troubleshooting guide for common issues
+- 30-minute onboarding for new colony builders
+
+---
+
 ## [3.0.0] — 2026-03-18
 
 ### The Colony Is Born
@@ -58,7 +108,7 @@ All notable changes to the HIVE-MIND colony.
 
 The monolithic hive-synthesis-engine. Single SKILL.md (~470 lines) with operational framework, templates, Claude-specific techniques, validation, and iteration patterns. Functional but loaded everything for every request regardless of complexity.
 
-This version was the larva. The royal jelly was the question: "help make yourself better."
+This version was the larva. The royal jelly was the question: "help make yourself better." From that larva, Harper was born.
 
 ---
 
