@@ -115,26 +115,35 @@ Knowledge is earned, not assumed. Every pattern cites the real deployment experi
 
 ## Validation
 
-Tested across 65 automated tests using Claude-in-Claude:
-- **95% average score** across all tiers
-- **Zero new failure modes** for two consecutive waves (saturation confirmed)
+Tested across 100+ automated tests using Claude-in-Claude across v3.0.0 and v3.1.0:
+- **95% average score** on coverage (30 tests across all tiers including 5 Messenger-specific)
+- **91% average score** on stress testing (10 adversarial/edge case inputs)
+- **Zero new failure modes** for consecutive waves (saturation confirmed)
 - **Ablation testing** confirmed Guardian works better as a second-pass reviewer than co-loaded context
-- Tests covered: SIMPLE, MEDIUM, COMPLEX, CHAIN, SPAWN tiers + adaptive + stress + ablation
+- Tests covered: SIMPLE, MEDIUM, COMPLEX, CHAIN, SPAWN tiers + Messenger + adaptive + stress + ablation
 
 ## Roadmap
 
-### The Queen's Messenger *(planned)*
+### Recent: v3.1.0 — Harper Gets Her Voice ✅
 
-An outward-facing gatekeeper caste — the first thing that touches a human request before any other caste convenes. The Messenger evaluates input quality and decides:
+The Queen's Messenger is live — an input quality gate that evaluates every request before the colony convenes:
 
-| Assessment | Response |
+| Verdict | Response |
 |---|---|
-| Vague or lazy input | *"My queen says meh — give me more. What domain? What outcome?"* |
-| Too trivial for the colony | Answers directly, no ritual needed |
-| Good but incomplete | *"The queen will hear you, but she needs: [specific gaps]"* |
-| Colony-worthy | Passes through to Scout and full convening |
+| **MEH** | *"My queen says meh — give me more. What domain? What outcome?"* |
+| **ALMOST** | *"The queen will hear you, but she needs: [specific gaps]"* |
+| **BENEATH** | Answers directly, no ritual needed |
+| **WORTHY** | Passes through to Scout and full convening |
+| **JELLY** | Royal jelly detected — spawn protocol |
 
-The first caste with *personality*, not just function. A quality gate on inputs, not just outputs.
+Also shipped: PHILOSOPHY.md, TUTORIAL.md, ROADMAP.md, hive manifest spec, originality system, conditional Guardian, adaptation/immunity/security rituals.
+
+### Next: v3.2.0 — Intelligence Upgrade
+
+- **Hypothesis generation** — colony proposes 2-3 approaches with tradeoffs before building
+- **LLM quality scoring** — second-pass 1-10 grading with reasoning, not just regex checklist
+- **Model selector** — test on Sonnet, Opus, or Haiku
+- **Messenger personality layer** — hive-mind sci-fi references, voice that scales with input quality
 
 ### Colony Evolution
 - **Self-Synthesis** (Stage 3) — the Queen rewrites herself through her own Evolution ritual, completing the bootstrap
