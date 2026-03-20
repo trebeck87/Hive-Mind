@@ -4,34 +4,26 @@ Registry of all hives spawned by **Harper**, the founding Queen. Each entry reco
 
 ---
 
-## Active Hives
+## How to Register a Hive
 
-### HIVE-ALPHA — AI Trading Intelligence
-- **Domain**: Financial analysis, AI sector equity research, portfolio construction
-- **Queen**: 5-stage prompt chain (Recon → Signals → Regime → Thesis → Kelly Sizer)
-- **Workers**: Portfolio Builder (Stage 1), Stock Analyst (Stage 2), Sweep Runner (Stage 3)
-- **Soldiers**: Risk Monitor (overbought/bearish detection, stop-loss, circuit breaker)
-- **Drones**: Price Engine (GBM simulation / market data), Signal Computer (RSI, momentum, SMA, vol)
-- **Status**: Active, v4. Hybrid auto-pilot with reactive triggers.
-- **Connections**: Pending → Social Sentiment hive (Grok/LunarCrush integration)
+When a daughter is spawned (via `queen/spawning.md`), add an entry here:
 
-### hive-legal-advisory — Legal Counsel System
-- **Domain**: Legal analysis, contract review, dispute resolution
-- **Queen**: Intake Admin that scopes by jurisdiction and domain
-- **Workers**: Researcher, Drafter, Analyst
-- **Soldiers**: Skeptic (adversarial review), Connector (cross-domain linkage)
-- **Drones**: None (no data pipeline — knowledge-based)
-- **Status**: Active
-- **Connections**: None currently
+```
+### {hive-name} — {Domain Description}
+- **Domain**: {What this hive covers}
+- **Pattern**: {Minimal / Standard / Chain / Hub}
+- **Workers**: {List with roles}
+- **Soldiers**: {List with roles}
+- **Drones**: {List, or "None" if knowledge-based}
+- **Status**: {Active / In Development / Planned}
+- **Connections**: {Sibling hives it queries, or "Standalone"}
+```
 
 ---
 
-## Planned Hives
+## Active Hives
 
-### Social Sentiment Hive (unnamed)
-- **Domain**: Social media sentiment analysis for trading signals
-- **Blocked on**: xAI API key for Grok integration
-- **Would connect to**: HIVE-ALPHA (Stage 0 parallel feed)
+*Register your daughters here as you spawn them.*
 
 ---
 
@@ -46,9 +38,14 @@ Hives communicate using the `hive-inter-v1` protocol defined in `rituals/adaptat
 4. The receiving hive treats the query like any input — Scout maps, Builder responds
 5. Response flows back in the queried hive's expected schema
 
-### Active Connections
-- HIVE-ALPHA → hive-legal-advisory: **Designed, not yet connected.** Would send regulatory risk queries when positions are flagged.
-- HIVE-ALPHA → Social Sentiment Hive: **Blocked on hive spawn.** Would receive Stage 0 sentiment feed.
+### Query Types
+
+| Type | Meaning | Expected Response |
+|---|---|---|
+| **assessment** | "Evaluate this through your domain lens" | Structured analysis with confidence |
+| **validation** | "Is this correct/safe/compliant?" | Pass/fail with findings |
+| **generation** | "Produce something I can't" | Output in the querying hive's format |
+| **lookup** | "Do you know about X?" | Factual response or "outside my knowledge" |
 
 ### Protocol Reference
 Full query/response format, urgency levels, routing rules, and failure handling: `rituals/adaptation.md`
