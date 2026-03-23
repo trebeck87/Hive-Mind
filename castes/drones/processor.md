@@ -35,23 +35,23 @@ Output Schema:
 
 ## Common Processor Patterns
 
-**Technical Indicators** (trading hives):
-- RSI, MACD, SMA, Bollinger — all pure computation on price arrays
-- Input: price history array → Output: signal values
+**Signal Computation** (data-heavy hives):
+- Moving averages, oscillators, trend indicators — all pure computation on time-series arrays
+- Input: time-series data array → Output: signal values
 
-**Score Normalization** (multi-source hives):
+**Score Normalization** (multi-source domains):
 - Different sources use different scales
 - Map all to unified scale (e.g., -100 to +100)
 - Preserve source attribution
 
 **Threshold Classification**:
 - Convert continuous signals to discrete categories
-- RSI → OVERBOUGHT / NEUTRAL / OVERSOLD
-- Trend → BULLISH / NEUTRAL / BEARISH
+- Oscillator → HIGH / NEUTRAL / LOW
+- Trend → POSITIVE / NEUTRAL / NEGATIVE
 
 ## Processor Anti-Patterns
 
-- ❌ Making judgments ("this looks bullish" — that's a Worker's job)
+- ❌ Making judgments ("this looks positive" — that's a Worker's job)
 - ❌ Skipping validation of Collector output (garbage in → garbage out)
 - ❌ Hiding computation errors (surface them as warnings, don't swallow)
 
