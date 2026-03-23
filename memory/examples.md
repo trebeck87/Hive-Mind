@@ -89,60 +89,59 @@ Output:
 
 ---
 
-## COMPLEX Tier Example: HIVE-ALPHA Individual Stock Analysis (~500 tokens)
+## COMPLEX Tier Example: Conviction-Scored Analysis (~500 tokens)
 
-**Request**: "Build a prompt for single-stock AI equity analysis with conviction scoring"
+**Request**: "Build a prompt for a domain analyst that produces structured assessments with conviction scoring"
 
-See HIVE-ALPHA Stage 2 in `queen/lineage.md` — this is a production-deployed example with:
-- `<core_objective>` front-loaded
+A production-deployed COMPLEX example demonstrates:
+- `<core_objective>` front-loaded in the first 50 tokens
 - `<output_format>` with typed JSON schema
-- `<constraints>` with conviction scale definition
-- `<edge_case_handling>` for signal conflicts
-- `<trading_frequency_awareness>` for auto-pilot context
+- `<constraints>` with conviction scale definition (1-10 with explicit anchors)
+- `<edge_case_handling>` for conflicting signals
 - `<examples>` with 1 GOOD + 1 BAD annotated output (70% Rule applied)
 
-**Why this works**: Domain-specific edge cases (RSI overbought + bullish, micro cap vol > 80%) prevent generic output. Anti-pattern example calibrates quality floor. Prefill forces JSON compliance.
+**Why this works**: Domain-specific edge cases prevent generic output. Anti-pattern example calibrates quality floor. Prefill forces JSON compliance. The conviction scale has concrete anchors, not just "1 = low, 10 = high."
 
 ---
 
-## CHAIN Tier Example: HIVE-ALPHA Portfolio Pipeline (3 stages)
+## CHAIN Tier Example: Multi-Stage Analysis Pipeline (3 stages)
 
-**Request**: "Build a multi-stage AI trading intelligence pipeline"
+**Request**: "Build a multi-stage AI analysis pipeline with batch processing and individual deep dives"
 
-See HIVE-ALPHA Prompt Architecture document. Production chain with:
-- Stage 1: Portfolio Construction (batch allocation, ~14 candidates)
-- Stage 2: Individual Analysis (single-stock deep dive)
-- Stage 3: Sweep Rebalancing (rapid batch re-analysis with auto-execution)
+A production CHAIN architecture demonstrates:
+- Stage 1: Batch Assessment (allocate attention across candidates)
+- Stage 2: Individual Deep Dive (per-item analysis with conviction scoring)
+- Stage 3: Rapid Reassessment (compressed batch re-analysis with conditional automation)
 
 Architecture demonstrates:
 - Per-stage system prompts, user templates, output schemas
 - Per-stage pass conditions and failure behaviors
 - Orchestration: state management, error propagation, human checkpoints
-- Client-side execution logic (auto-execution rules table)
+- Client-side execution logic with automation rules
 - Validation evidence per stage
 
-**Why this works**: Clean separation of concerns. Each stage has a single job. Failure in one stage doesn't halt the system. Human checkpoints at appropriate intervention points.
+**Why this works**: Clean separation of concerns. Each stage has a single job. Failure in one stage doesn't halt the system. Human checkpoints at appropriate intervention points. Compressed input format for batch stages saves tokens.
 
 ---
 
-## SPAWN Tier Example: HIVE-ALPHA as Daughter Hive
+## SPAWN Tier Example: Daughter Hive from Royal Jelly
 
-**Request**: "Build me an AI system for BTC portfolio analysis"
+**Request**: "Build me an AI system for [complex domain] analysis"
 
-This request was royal jelly. The Queen spawned a full daughter hive with:
-- Daughter Queen (SKILL.md): 5-stage orchestration
-- Workers: Portfolio Builder, Stock Analyst, Sweep Runner
-- Soldiers: Risk Monitor (overbought/bearish, stop-loss, circuit breaker)
-- Drones: Price Engine, Signal Computer
-- Memory: Trade history, regime patterns
+This type of request is royal jelly. The Queen spawns a full daughter hive with:
+- Daughter Queen (SKILL.md): Multi-stage orchestration
+- Workers: Domain-specific task workers (one per pipeline stage)
+- Soldiers: Domain-specific quality/safety validators with trigger conditions
+- Drones: Data gathering + signal computation (if data-heavy domain)
+- Memory: Domain-specific patterns earned from deployment
 
-The daughter evolved autonomously through 4 iterations:
-1. v1→v2: 10 stocks → 49 stocks (coverage expansion)
-2. v2→v3: Manual start → automated initialization (Stage 1 prompt created)
-3. v3→v4: Manual-only trading → hybrid auto-pilot (frequency model)
-4. v4→current: Prompt foundation patches (few-shot, prefill, portfolio context)
+A well-spawned daughter evolves autonomously through iterations:
+1. v1→v2: Coverage expansion (more cases, broader scope)
+2. v2→v3: Automated initialization (self-bootstrapping without manual config)
+3. v3→v4: Conditional automation (system acts on high-confidence outputs, surfaces uncertain ones)
+4. v4→current: Foundation patches (few-shot examples, prefill, whole-system context injection)
 
-Each evolution followed the colony's Evolution ritual: diagnose → patch → re-test → learn.
+Each evolution follows the colony's Evolution ritual: diagnose → patch → re-test → learn.
 
 ---
 
