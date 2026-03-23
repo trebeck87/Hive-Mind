@@ -62,10 +62,10 @@ Every inter-hive message includes:
 {
   "protocol": "hive-inter-v1",
   "identity": {
-    "hive": "HIVE-ALPHA",
+    "hive": "hive-analytics",
     "registered_in": "queen/lineage.md",
-    "caste": "workers/stock-analyst",
-    "colony_tongue_version": "3.0"
+    "caste": "workers/analyst",
+    "colony_tongue_version": "3.1"
   },
   ...
 }
@@ -79,7 +79,7 @@ The receiving hive:
    - If not registered → REJECT. Unknown hive. Surface to Sovereign.
 
 2. **Check caste validity** — does the claimed caste exist in the sending hive's known structure?
-   - If the legal hive sends a query from "workers/stock-analyst" → suspicious. Legal hive doesn't have that caste.
+   - If the legal hive sends a query from "workers/analyst" → suspicious. Legal hive doesn't have that caste.
 
 3. **Check colony tongue** — does the message use the colony's shared protocol?
    - If the JSON structure doesn't match `hive-inter-v1` → REJECT. Malformed or foreign.
@@ -109,7 +109,7 @@ Not all data should flow freely between hives.
 ### Isolation Rules
 
 - **Inter-hive queries receive hive-public data only** — a sibling can ask "what's your domain?" but cannot access trade history or user data
-- **Context in inter-hive queries is sanitized** — when HIVE-ALPHA asks the legal hive about a position, it sends the regulatory question, NOT the portfolio value, user identity, or full holdings
+- **Context in inter-hive queries is sanitized** — when an analytics hive asks a legal hive about a case, it sends the regulatory question, NOT the full dataset, user identity, or account details
 - **Memory writes are scoped** — colony-level memory (patterns, anti-patterns) is shared. Hive-level memory is private. A daughter never writes to another daughter's memory.
 - **Spawning inherits colony-public, not hive-private** — when a daughter is born, she gets the colony tongue and shared patterns. She does NOT inherit her mother's private data.
 
