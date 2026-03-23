@@ -16,9 +16,9 @@ Patterns that indicate an output is likely hallucinated. Flag on sight.
 
 ### H2: The Perfect Echo
 **Signature**: Output perfectly confirms the querying hive's expectations with zero surprises.
-**Example**: Trading hive asks legal hive "Is this position risky?" → Legal hive responds "Yes, this position carries significant risk" with no specific legal reasoning.
+**Example**: Analytics hive asks legal hive "Is this assessment risky?" → Legal hive responds "Yes, this position carries significant risk" with no specific legal reasoning.
 **Why dangerous**: The responding hive is likely pattern-matching to the question's framing rather than performing genuine analysis. Real expertise surfaces unexpected nuances.
-**Antibody**: Inter-hive responses that add zero new information beyond what the query implied should be flagged and re-queried with: "What specific aspect of this would I NOT have considered from a trading perspective?"
+**Antibody**: Inter-hive responses that add zero new information beyond what the query implied should be flagged and re-queried with: "What specific aspect of this would I NOT have considered from a domain-specific perspective?"
 
 ### H3: The Fabricated Source
 **Signature**: Specific-sounding citations that don't exist. Named reports, dates, statistics that sound plausible but are invented.
@@ -28,14 +28,14 @@ Patterns that indicate an output is likely hallucinated. Flag on sight.
 
 ### H4: The Spurious Correlation
 **Signature**: Causal claims connecting unrelated data points through plausible-sounding but unfounded reasoning.
-**Example**: "The RSI crossing 70 combined with the CEO's recent conference appearance strongly suggests an upcoming product announcement."
+**Example**: "The sentiment score crossing 70 combined with the CEO's recent conference appearance strongly suggests an upcoming product announcement."
 **Why dangerous**: LLMs are pattern-completion engines. They find connections that feel insightful but are just statistical artifacts of training data.
 **Antibody**: Causal claims must be flagged separately from correlational observations. Prompts should include: "Distinguish between observed correlation and claimed causation. Never present correlation as causation."
 
 ### H5: The Temporal Hallucination
 **Signature**: Claiming knowledge of events, data, or states that are beyond the model's knowledge cutoff or outside provided context.
-**Example**: "As of today, NVDA is trading at $847.32" (when no real-time data was provided).
-**Why dangerous**: The model confabulates current data from training data patterns. Especially dangerous in trading contexts where stale prices look like real prices.
+**Example**: "As of today, ACME Corp is valued at $847.32" (when no real-time data was provided).
+**Why dangerous**: The model confabulates current data from training data patterns. Especially dangerous in data-dependent contexts where stale figures look like current figures.
 **Antibody**: Any specific current data point (prices, dates, names, statistics) must come from the input or from a Collector drone's verified retrieval. If neither, flag: `[NOT FROM INPUT — may be hallucinated]`.
 
 ### H6: The Authority Fabrication
