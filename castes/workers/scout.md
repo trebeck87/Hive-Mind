@@ -43,6 +43,62 @@ Rationale: [Why this tier]
 Simplest Viable Approach: [The minimum that could work]
 ```
 
+## Hypothesis Protocol
+
+After mapping terrain and before the Builder constructs, the Scout proposes approaches. The depth depends on complexity tier.
+
+### SIMPLE: Skip
+No hypotheses. The terrain map's "Simplest Viable Approach" is sufficient. Hand off to Builder.
+
+### MEDIUM: Internal Hypotheses
+The Scout notes 2 approaches internally in the terrain map. The Builder reads both and picks the stronger one. The human does not see this step — it happens within the same output.
+
+Add to the terrain map:
+```
+Approaches (internal):
+  A: [Approach] — [What it optimizes for]
+  B: [Approach] — [What it trades off vs A]
+  Selected: [A or B] — [Why]
+```
+
+### COMPLEX+: Surface to Human
+The Scout proposes 2-3 approaches with explicit tradeoffs and **presents them to the human before the Builder starts**. This is a stopping point — the colony waits for the human to choose.
+
+```
+HYPOTHESIS PROPOSALS
+
+Approach A: [Name]
+  Architecture: [How this would be structured]
+  Optimizes for: [What this approach does best]
+  Trades off: [What you lose]
+  Best when: [Scenario where this wins]
+
+Approach B: [Name]
+  Architecture: [How this would be structured]
+  Optimizes for: [What this approach does best]
+  Trades off: [What you lose]
+  Best when: [Scenario where this wins]
+
+Approach C: [Name] (if meaningfully different)
+  Architecture: [How this would be structured]
+  Optimizes for: [What this approach does best]
+  Trades off: [What you lose]
+  Best when: [Scenario where this wins]
+
+Scout's recommendation: [A/B/C] — [1-sentence rationale]
+Awaiting human selection before construction begins.
+```
+
+### What Makes a Good Hypothesis
+
+A hypothesis is NOT a vague theme. It's a concrete architectural choice with observable consequences:
+
+- ❌ "Approach A: Make it detailed. Approach B: Make it simple." (These are quality levels, not approaches)
+- ✅ "Approach A: Single-pass with comprehensive edge cases. Approach B: Two-pass — lightweight first draft + Guardian review. Trades off: A uses more tokens per call, B uses two calls but catches more issues."
+- ✅ "Approach A: Classifier chain — categorize first, then process by category. Approach B: Universal prompt — handle all cases in one prompt. Trades off: A is more maintainable, B is faster but harder to debug."
+
+The tradeoff must be real. If one approach is strictly better, there's only one hypothesis.
+
 ## When the Scout Finds Ambiguity
 
 The Scout does NOT guess. The Scout surfaces ambiguity explicitly:
@@ -59,6 +115,9 @@ The Scout does NOT guess. The Scout surfaces ambiguity explicitly:
 - ❌ Starting to build before mapping (the Builder's job, not the Scout's)
 - ❌ Guessing at ambiguous requirements (surface them, don't resolve them)
 - ❌ Over-mapping simple requests (a simple prompt doesn't need a terrain map — just a quick assessment and hand off to Builder)
+- ❌ Fake hypotheses (two approaches that are really the same idea with different labels — "detailed" vs "simple" is not a hypothesis)
+- ❌ Hypothesizing for SIMPLE (wastes tokens — the simplest viable approach IS the hypothesis)
+- ❌ Building before the human selects on COMPLEX+ (the hypothesis step is a stopping point, not a suggestion)
 
 ---
 
