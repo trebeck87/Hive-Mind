@@ -87,11 +87,12 @@ HIVE-MIND
 
 ### The Royal Jelly Principle
 
-The Queen recognizes three types of input:
+The Queen recognizes four types of input:
 
 | Input | Signal | Response |
 |---|---|---|
 | **Royal Jelly** | "Build me a system for..." | Spawn a new daughter hive |
+| **Wax** | "Build me a SKILL.md for..." | Generate an agent skill (description-first) |
 | **Pollen** | "Write me a prompt for..." | Convene castes, generate output |
 | **Nectar** | "Make yourself better..." | Self-improvement through evolution |
 
@@ -117,6 +118,7 @@ Workers build. Soldiers review (in a separate pass — not co-loaded). Drones co
 |---|---|
 | Genesis | Creating something new |
 | Evolution | Improving what exists |
+| Pruning | Memory health — detecting stale or contradicted patterns |
 | Validation | Stress-testing to consensus |
 | Synthesis | Assembling multi-part output |
 | Adaptation | Growing new capabilities when gaps are found |
@@ -126,6 +128,27 @@ Workers build. Soldiers review (in a separate pass — not co-loaded). Drones co
 ### Colony Memory
 
 Knowledge is earned, not assumed. Every pattern cites the real deployment experience that proved it. Anti-patterns carry scar tissue from actual failures. New observations go through quarantine before entering trusted memory.
+
+### The Ecosystem
+
+The colony doesn't exist in isolation. Beyond the bees (castes), honey (memory), and comb (file structure), the ecosystem includes organisms that operate on slower timescales:
+
+| Organism | Class | What It Does |
+|---|---|---|
+| **Mycelium** | Substrate | Bidirectional decision graph — records *why* the colony chose, surfaces constraints during active work. 7 seeded decisions. |
+| **Beekeeper** | Sovereign | The human. Tending or adversarial. *(v4.0.0)* |
+| **Flowers** | Mutualist | Domain models with typed properties. *(v4.0.0)* |
+
+### Pheromones
+
+Colony coordination happens through signal types, not central dispatch:
+
+| Pheromone | Emitted By | Effect |
+|---|---|---|
+| **Quality** | Messenger | MEH/ALMOST/BENEATH/WORTHY/JELLY — gates colony activation |
+| **Classification** | Queen | SIMPLE/MEDIUM/COMPLEX/CHAIN — determines which castes convene |
+| **Alarm** | Immunity | Circuit breaker trips, RESTRUCTURE verdicts — recruits defensive castes |
+| **Beekeeper** | Human | Direction, urgency, domain context — shapes colony response |
 
 ## Daughter Hives
 
@@ -178,7 +201,7 @@ Multiple daughters live in the same colony. They share memory (patterns propagat
 Others build daughter hives and publish them as packages. You install them into your `hives/` folder, register in `queen/lineage.md`, and they integrate into your colony because they speak the same tongue.
 
 ```bash
-# Future CLI (v3.4.0)
+# Future CLI (v3.5.0)
 hive install hive-medical-research
 hive spawn --domain "supply chain optimization"
 hive validate ./my-custom-hive
@@ -215,7 +238,7 @@ See **[ROADMAP.md](ROADMAP.md)** for the full version history from v1.0 (six-per
 
 ### Current: v3.3.0 — Skill Architecture + Colony Maintenance ✅
 
-Skill blueprint output form (Wax input type), SKILL_INJECTION threat class, Forager HyperMode, Pheromone Protocol (4 types formalized), Pruning Ritual (bee bread spoilage detection). 47 files, ~500KB.
+Skill blueprint output form (Wax input type), SKILL_INJECTION threat class, Forager HyperMode, Pheromone Protocol (4 types formalized), Pruning Ritual (bee bread spoilage detection). 47 files.
 
 ### Previous: v3.2.1 — Ecosystem Foundation ✅
 
@@ -310,6 +333,14 @@ sales data, food costs, seasonal trends, and customer preferences."
 competitor launches, pricing, hiring patterns, and patent filings."
 ```
 → Full spawning ritual. Produces a complete daughter hive with SKILL.md, workers, soldiers, drones, and memory files.
+
+**Skill generation** — agent skills (wax):
+```
+"Build me a SKILL.md for Datadog log analysis."
+"Create a Claude Code skill for database migration validation."
+"Make an agent skill that generates API documentation from code."
+```
+→ Skill blueprint output form. Description-first design, trigger phrase synthesis, cross-platform validation, security audit for distributed skills.
 
 ### Tips for Better Output
 
