@@ -10,6 +10,7 @@ A modular prompt engineering framework built on biological hive intelligence. In
 
 The Queen Hive can:
 - **Generate production-grade prompts** across any complexity tier (simple → chain pipelines)
+- **Build agent skills** (SKILL.md files) with description-first design and cross-platform validation
 - **Spawn autonomous daughter hives** for new domains (trading, legal, medical, energy, any field)
 - **Communicate between hives** through a structured inter-hive protocol
 - **Self-improve** through evolution rituals and colony memory
@@ -51,6 +52,7 @@ HIVE-MIND
 ├── rituals/                    ← Ceremonies
 │   ├── genesis.md                Creating from nothing
 │   ├── evolution.md              Diagnose → Patch → Learn
+│   ├── pruning.md                Memory health (bee bread spoilage detection)
 │   ├── validation.md             Stress-test to consensus
 │   ├── synthesis.md              Assembly of multi-part work
 │   ├── adaptation.md             Gap-filling (reinforce/call/spawn/surface)
@@ -64,15 +66,21 @@ HIVE-MIND
 │   ├── infections.md             Known hallucination signatures
 │   └── threats.md                Known attack patterns
 │
+├── ecosystem/                  ← Beyond the Bees
+│   ├── README.md                 Organism classes & biological grounding
+│   └── mycelium.md               Decision graph substrate (why the colony chose)
+│
 ├── output-forms/               ← Output Templates
 │   ├── system-prompt.md          Shape of a system prompt
+│   ├── skill-blueprint.md        Shape of an agent skill (SKILL.md)
 │   ├── chain-architecture.md     Shape of a prompt chain doc
 │   ├── tool-definition.md        Shape of tool/function schemas
 │   ├── hive-blueprint.md         Shape of a new daughter hive
-│   └── validation-report.md      Shape of validation evidence
+│   ├── validation-report.md      Shape of validation evidence
+│   └── skill-validation-report.md  Shape of skill validation (trigger + security)
 │
 ├── hives/                      ← Where daughter hives live
-└── tests/                      ← Test harness (100+ tests, Claude-in-Claude)
+└── tests/                      ← Test harness (30 tests, Claude-in-Claude)
 ```
 
 ## Core Concepts
@@ -142,7 +150,7 @@ hive-{domain}/
 │   {
 │     "name": "hive-{domain}",
 │     "version": "1.0.0",
-│     "colony_tongue_version": "3.2",
+│     "colony_tongue_version": "3.3",
 │     "domain": "{description}",
 │     "pattern": "minimal|standard|chain|hub",
 │     "accepts_queries": ["assessment", "lookup", "validation", "generation"],
@@ -187,50 +195,47 @@ The path: Level 0 proves single daughters work → Level 1 proves siblings coope
 
 ## Validation
 
-Tested across 50+ automated tests using Claude-in-Claude with dual scoring (LLM quality grading + regex pattern checks):
+Tested across 30 automated tests using Claude-in-Claude with dual scoring (LLM quality grading + regex pattern checks):
 
-**v3.2.0 — Intelligence Upgrade:**
-- **Coverage:** 30 tests, 26 pass, 80% avg (Sonnet 4, LLM grading ON)
-- **Adaptive:** 20 tests across 2 waves, 20 pass, 89% avg
-- **Zero new failure modes** across 50 tests (saturation confirmed)
+**v3.3.0 — Skill Architecture + Colony Maintenance:**
+- **Coverage:** 30 tests, 28 pass, 84% avg, ~$4.21 (Sonnet 4, LLM grading ON)
 - **All 5 tiers exercised:** SIMPLE, MEDIUM, COMPLEX, CHAIN, SPAWN
 - **All clarification subtypes validated:** MEH, ALMOST, BENEATH, SCOUT
-- **Hypothesis protocol confirmed:** COMPLEX+ correctly stops and surfaces approaches before building
-- 4 coverage "failures" are correct colony behavior (hypothesis stopping) that the LLM grader penalizes — grader calibration fix queued for v3.2.1
+- **Mycelium integration confirmed:** grader notes "proper integration of Mycelium constraints"
+- **BENEATH calibration working:** direct answers score 10/10
+- 2 "failures" are correct COMPLEX+ hypothesis stops — grader fix implemented, awaiting validation
 
-**v3.1.0 baseline:** 30 coverage tests, 29 pass, 95% avg | 10 stress tests, 9 pass, 91% avg
+**v3.2.0 baseline:** 30 tests, 26 pass, 80% avg | 20 adaptive tests, 89% avg
 
 **Prior validation:** Ablation testing confirmed Guardian works better as a second-pass reviewer than co-loaded context. Tests cover: coverage, adaptive, stress, ablation, and regression modes.
 
 ## Roadmap
 
-See **[ROADMAP.md](ROADMAP.md)** for the full version history from v1.0 (six-persona committee) through v3.2.0 (current) to v5.0 (colony network vision).
+See **[ROADMAP.md](ROADMAP.md)** for the full version history from v1.0 (six-persona committee) through v3.3.0 (current) to v5.0 (colony network vision).
 
-### Current: v3.2.0 — Intelligence Upgrade ✅
+### Current: v3.3.0 — Skill Architecture + Colony Maintenance ✅
 
-Hypothesis generation (Scout proposes 2-3 approaches before building), LLM quality scoring (second-pass 1-10 grading with reasoning), model selector, clarification subtypes, regression testing mode. Colony files genericized for public use. 41 files, ~450KB.
+Skill blueprint output form (Wax input type), SKILL_INJECTION threat class, Forager HyperMode, Pheromone Protocol (4 types formalized), Pruning Ritual (bee bread spoilage detection). 47 files, ~500KB.
 
-### Next: v3.2.1 — Ecosystem Foundation
+### Previous: v3.2.1 — Ecosystem Foundation ✅
 
-- The Mycelium — decision graph substrate (why the colony chose to be what it is)
-- Colony debt cleanup and memory genericization
-- Ecosystem directory established
+The Mycelium (bidirectional decision graph, 7 seeded decisions), ecosystem directory with organism classes and biological grounding table. Test harness optimization (adaptive throttling, pipelined execution, tier-scaled max_tokens).
 
-### Future: v3.3.0 — Beekeeper + Pruning
+### Next: v3.4.0 — Colony Deepening
 
-- Beekeeper organism — behavioral model of the human sovereign
-- Pruning ritual — periodic re-validation of colony memory
+- Lazy loading protocol (castes load on-demand, not pre-loaded)
+- Cold context adversarialism (Guardian + Sentinel isolation)
+- `memory/mechanics.md` (why prompts work, not just how)
+- Prompt debt audit protocol
+- Messenger recalibration feedback loop
+- Memory temporal markers
+- Swarm Protocol Level 1 (intra-hive parallel exploration)
 
-### Future: v3.4.0 — Python Foundation
+### Vision: v4.0.0+ — Beekeeper Architecture & Colony Network
 
-- CLI tool (`hive test`, `hive spawn`, `hive validate`, `hive publish`)
-- pytest suite, CI/CD integration, pip installable
-- Headless test runner for automated regression
-
-### Vision: v4.0.0+ — Self-Synthesis & Colony Network
-
+- Beekeeper as a peer directory (tending + adversarial modes)
 - Harper rewrites herself through her own Evolution ritual
-- Live inter-hive protocol, daughter marketplace, cross-colony communication
+- Cross-hive swarming (Level 2), colony tongue layering, daughter marketplace
 
 ## Contributing
 
